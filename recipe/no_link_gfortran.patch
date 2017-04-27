@@ -1,0 +1,13 @@
+diff --git a/setup.py b/setup.py
+index e253134..b2e0e2c 100644
+--- a/setup.py
++++ b/setup.py
+@@ -67,6 +67,8 @@ def pkgconfig(*packages, **kw):
+     if six.PY3:
+         output = output.decode('utf8')
+     for token in output.split():
++        if token == "-lgfortran":
++            continue
+         if token[:2] in flag_map:
+             kw.setdefault(flag_map.get(token[:2]), []).append(token[2:])
+         else:
