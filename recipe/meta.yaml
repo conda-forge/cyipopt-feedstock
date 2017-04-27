@@ -16,7 +16,10 @@ build:
   # TODO: Once ipopt is available for Windows in conda forge, remove the
   # following line.
   skip: True  # [win]
-  script: python setup.py install --single-version-externally-managed --record record.txt
+  script:
+    # remove once https://github.com/conda-forge/toolchain-feedstock/pull/11 is merged
+    - export LDFLAGS="${LDFLAGS} -L${PREFIX}/lib"
+    - python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
   build:
