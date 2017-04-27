@@ -10,6 +10,8 @@ source:
   fn: v{{ version }}.tar.gz
   url: https://github.com/matthias-k/cyipopt/archive/v{{ version }}.tar.gz
   sha256: {{ sha256 }}
+  patches:
+    - no_link_gfortran.patch
 
 build:
   number: 1
@@ -17,8 +19,6 @@ build:
   # following line.
   skip: True  # [win]
   script:
-    # remove once https://github.com/conda-forge/toolchain-feedstock/pull/11 is merged
-    - export LDFLAGS="${LDFLAGS} -L${PREFIX}/lib"
     - python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
