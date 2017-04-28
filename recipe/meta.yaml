@@ -10,18 +10,20 @@ source:
   fn: v{{ version }}.tar.gz
   url: https://github.com/matthias-k/cyipopt/archive/v{{ version }}.tar.gz
   sha256: {{ sha256 }}
+  patches:
+    - no_link_gfortran.patch
 
 build:
-  number: 0
+  number: 1
   # TODO: Once ipopt is available for Windows in conda forge, remove the
   # following line.
   skip: True  # [win]
-  # NOTE : Set CC to force gcc on OSX.
-  script: CC=gcc python setup.py install --single-version-externally-managed --record record.txt
+  script:
+    - python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
   build:
-    - gcc
+    - toolchain
     - pkg-config  # [osx]
     - python
     - ipopt
