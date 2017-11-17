@@ -29,13 +29,13 @@ requirements:
     - ipopt
     - setuptools
     - cython
-    - numpy 1.8.*
+    - numpy 1.9.*
     - scipy
     - six
   run:
     - python
     - ipopt
-    - numpy >=1.8
+    - numpy >=1.9
     - scipy
     - six
     - future
