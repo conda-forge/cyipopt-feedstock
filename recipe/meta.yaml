@@ -23,19 +23,20 @@ build:
 
 requirements:
   build:
-    - toolchain
     - pkg-config  # [osx]
+    - {{ compiler('c') }}
+  host:
     - python
     - ipopt
     - setuptools
     - cython
-    - numpy 1.9.*
+    - numpy
     - scipy
     - six
   run:
     - python
     - ipopt
-    - numpy >=1.9
+    - {{ pin_compatible('numpy') }}
     - scipy
     - six
     - future
