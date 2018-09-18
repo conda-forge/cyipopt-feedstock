@@ -18,7 +18,7 @@ build:
   # TODO: Once ipopt is available for Windows in conda forge, remove the
   # following line.
   skip: True  # [win]
-  script:  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
+  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
 
 requirements:
   build:
