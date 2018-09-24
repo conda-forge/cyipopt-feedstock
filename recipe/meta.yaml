@@ -1,6 +1,6 @@
 {% set name = "cyipopt" %}
-{% set version = "0.1.8" %}
-{% set sha256 = "146d014b69914a63c4b5b2c220db8c132756abad45aec387a8e045d7539a0137" %}
+{% set version = "0.1.9" %}
+{% set sha256 = "b6cea96d5ffb9d3f55d993dd51575fa6137c1f94bdfd53b7b25f574989fffa38" %}
 
 package:
   name: {{ name|lower }}
