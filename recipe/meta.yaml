@@ -14,10 +14,7 @@ source:
     - no_link_gfortran.patch
 
 build:
-  number: 1000
-  # TODO: Once ipopt is available for Windows in conda forge, remove the
-  # following line.
-  skip: True  # [win]
+  number: 1001
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
 
 requirements:
