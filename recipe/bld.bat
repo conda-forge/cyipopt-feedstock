@@ -1,0 +1,1 @@
+%PYTHON% -m pip install --global-option build_ext --global-option="-L%LIBRARY_PREFIX%\bin" --global-option="-I%LIBRARY_PREFIX%\include\coin" --global-option --compiler=msvc . --no-deps --ignore-installed --no-cache-dir -vvv

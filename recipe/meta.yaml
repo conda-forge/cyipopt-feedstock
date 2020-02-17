@@ -11,23 +11,25 @@ source:
   url: https://github.com/matthias-k/cyipopt/archive/v{{ version }}.tar.gz
   sha256: {{ sha256 }}
   patches:
-    - no_link_gfortran.patch
+     - windows-pkg-config.patch
+     - no_link_gfortran.patch  # [not win]
 
 build:
-  number: 1000
-  # TODO: Once ipopt is available for Windows in conda forge, remove the
-  # following line.
-  skip: True  # [win]
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
+  number: 1002
+  skip: true  # [win and vc<14]
 
 requirements:
   build:
     - pkg-config  # [osx]
-    - {{ compiler('c') }}
-  host:
+    - {{ compiler('cxx') }}
+    - m2-patch  # [win]
+    - patch  # [not win]
+  host: 
+    - libpython  # [win]
+    - mumps-seq  # [win]
+    - ipopt
     - pip
     - python
-    - ipopt
     - setuptools
     - cython
     - numpy
@@ -36,6 +38,7 @@ requirements:
   run:
     - python
     - ipopt
+    - mumps-seq  # [win]
     - {{ pin_compatible('numpy') }}
     - scipy
     - six

@@ -1,0 +1,26 @@
+﻿--- setup.py
++++ setup.py
+@@ -67,16 +67,17 @@ def pkgconfig(*packages, **kw):
+ if __name__ == '__main__':
+ 
+     if sys.platform == 'win32':
+-
+-        IPOPT_INCLUDE_DIRS = ['include_mt/coin', np.get_include()]
+-        IPOPT_LIBS = ['Ipopt39', 'IpoptFSS']
+-        IPOPT_LIB_DIRS = ['lib_mt/x64/release']
+-        IPOPT_DLL = ['Ipopt39.dll', 'IpoptFSS39.dll']
++        ipoptdir = os.environ.get('LIBRARY_PREFIX', '')
++        IPOPT_INCLUDE_DIRS = [os.path.join(ipoptdir, 'include', 'coin'), np.get_include()]
++        IPOPT_LIBS = ['ipopt']
++        IPOPT_LIB_DIRS = [os.path.join(ipoptdir, 'bin')]
++        IPOPT_DLL = ['ipopt.dll']
+ 
+         EXT_MODULES = [
+             Extension(
+-                PACKAGE_NAME + '.' + 'cyipopt',
++                'cyipopt',
+                 ['src/cyipopt.pyx'],
++                language='c++',
+                 include_dirs=IPOPT_INCLUDE_DIRS,
+                 libraries=IPOPT_LIBS,
+                 library_dirs=IPOPT_LIB_DIRS
