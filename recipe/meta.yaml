@@ -14,7 +14,8 @@ source:
     - no_link_gfortran.patch
 
 build:
-  number: 1000
+  # TODO : Set the build number to 0 on the next cyipopt release.
+  number: 1001
   # TODO: Once ipopt is available for Windows in conda forge, remove the
   # following line.
   skip: True  # [win]
@@ -27,7 +28,7 @@ requirements:
   host:
     - pip
     - python
-    - ipopt
+    - ipopt <3.13
     - setuptools
     - cython
     - numpy
@@ -35,7 +36,7 @@ requirements:
     - six
   run:
     - python
-    - ipopt
+    - ipopt <3.13
     - {{ pin_compatible('numpy') }}
     - scipy
     - six
