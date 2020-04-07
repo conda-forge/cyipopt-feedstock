@@ -15,7 +15,7 @@ source:
 
 build:
   # TODO : Set the build number to 0 on the next cyipopt release.
-  number: 1001
+  number: 1002
   # TODO: Once ipopt is available for Windows in conda forge, remove the
   # following line.
   skip: True  # [win]
