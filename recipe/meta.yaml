@@ -25,6 +25,7 @@ requirements:
   build:
     - pkg-config  # [osx]
     - {{ compiler('c') }}
+    # NOTE : The conda-forge ipopt vendors lapack, thus it is needed explicitly.
     - lapack
   host:
     - pip
