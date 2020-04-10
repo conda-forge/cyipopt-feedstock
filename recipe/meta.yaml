@@ -15,7 +15,7 @@ source:
 
 build:
   # TODO : Set the build number to 0 on the next cyipopt release.
-  number: 1002
+  number: 1003
   # TODO: Once ipopt is available for Windows in conda forge, remove the
   # following line.
   skip: True  # [win]
@@ -25,10 +25,13 @@ requirements:
   build:
     - pkg-config  # [osx]
     - {{ compiler('c') }}
+    # NOTE : The conda-forge ipopt vendors lapack, thus it is needed explicitly.
+    - lapack
   host:
     - pip
     - python
-    - ipopt <3.13
+    - ipopt
+    - lapack
     - setuptools
     - cython
     - numpy
@@ -36,7 +39,7 @@ requirements:
     - six
   run:
     - python
-    - ipopt <3.13
+    - ipopt
     - {{ pin_compatible('numpy') }}
     - scipy
     - six
