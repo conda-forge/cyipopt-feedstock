@@ -14,7 +14,6 @@ source:
     - no_link_gfortran.patch
 
 build:
-  # TODO : Set the build number to 0 on the next cyipopt release.
   number: 0
   # TODO: Once ipopt is available for Windows in conda forge, remove the
   # following line.
@@ -56,8 +55,8 @@ test:
 about:
   home: https://github.com/matthias-k/cyipopt
   license: EPL-1.0
+  license_file: LICENSE
   summary: A Cython wrapper to the IPOPT optimization package
-
   description: |
     Ipopt (Interior Point OPTimizer, pronounced eye-pea-Opt) is a software
     package for large-scale nonlinear optimization. cyipopt is a python wrapper
