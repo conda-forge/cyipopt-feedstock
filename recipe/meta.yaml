@@ -1,6 +1,6 @@
 {% set name = "cyipopt" %}
-{% set version = "0.1.9" %}
-{% set sha256 = "b6cea96d5ffb9d3f55d993dd51575fa6137c1f94bdfd53b7b25f574989fffa38" %}
+{% set version = "0.2.0" %}
+{% set sha256 = "5291388557d1dc0846fa8c31992d42166aa9c076b2393110665db95040bb3b3a" %}
 
 package:
   name: {{ name|lower }}
@@ -15,11 +15,11 @@ source:
 
 build:
   # TODO : Set the build number to 0 on the next cyipopt release.
-  number: 1003
+  number: 0
   # TODO: Once ipopt is available for Windows in conda forge, remove the
   # following line.
-  skip: True  # [win]
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
+  skip: true  # [win]
+  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
 
 requirements:
   build:
@@ -56,7 +56,7 @@ test:
 about:
   home: https://github.com/matthias-k/cyipopt
   license: EPL-1.0
-  summary: 'A Cython wrapper to the IPOPT optimization package'
+  summary: A Cython wrapper to the IPOPT optimization package
 
   description: |
     Ipopt (Interior Point OPTimizer, pronounced eye-pea-Opt) is a software
