@@ -1,6 +1,6 @@
 {% set name = "cyipopt" %}
-{% set version = "0.2.0" %}
-{% set sha256 = "5291388557d1dc0846fa8c31992d42166aa9c076b2393110665db95040bb3b3a" %}
+{% set version = "0.3.0" %}
+{% set sha256 = "fff4271c3661a4ad9fe7f0f2f0138648cd007e94c8d10ba456b56959ecee7d3f" %}
 
 package:
   name: {{ name|lower }}
@@ -14,7 +14,7 @@ source:
     - no_link_gfortran.patch
 
 build:
-  number: 1
+  number: 0
   # TODO: Once ipopt is available for Windows in conda forge, remove the
   # following line.
   skip: true  # [win]
