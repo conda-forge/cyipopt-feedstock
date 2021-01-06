@@ -15,9 +15,7 @@ source:
 
 build:
   number: 0
-  script_env:
-    - USECONDAFORGEIPOPT  # [win]
-  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
+  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv  # [unix]
 
 requirements:
   build:
