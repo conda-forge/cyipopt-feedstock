@@ -25,11 +25,12 @@ requirements:
     - {{ compiler('c') }}
     # NOTE : The conda-forge ipopt vendors lapack, thus it is needed explicitly.
     - lapack
+    - libblas * *netlib
   host:
     - cython
     - ipopt
     - lapack
-    - netlib
+    - libblas * *netlib
     - numpy
     - pip
     - python
@@ -42,7 +43,6 @@ requirements:
     - ipopt
     - lapack
     - libblas * *netlib
-    - netlib
     - python
     - scipy
     - six
