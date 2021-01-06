@@ -15,34 +15,37 @@ source:
 
 build:
   number: 0
-  # TODO: Once ipopt is available for Windows in conda forge, remove the
-  # following line.
-  skip: true  # [win]
+  script_env:
+    - USECONDAFORGEIPOPT  # [win]
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
 
 requirements:
   build:
-    - pkg-config  # [osx]
+    - pkg-config  # [unix]
     - {{ compiler('c') }}
     # NOTE : The conda-forge ipopt vendors lapack, thus it is needed explicitly.
     - lapack
   host:
-    - pip
-    - python
+    - cython
     - ipopt
     - lapack
-    - setuptools
-    - cython
+    - netlib
     - numpy
+    - pip
+    - python
     - scipy
+    - setuptools
     - six
   run:
-    - python
-    - ipopt
     - {{ pin_compatible('numpy') }}
+    - future
+    - ipopt
+    - lapack
+    - libblas * *netlib
+    - netlib
+    - python
     - scipy
     - six
-    - future
 
 test:
   imports:
