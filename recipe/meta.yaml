@@ -21,16 +21,16 @@ build:
 
 requirements:
   build:
-    - pkg-config  # [unix]
     - {{ compiler('c') }}
     # NOTE : The conda-forge ipopt vendors lapack, thus it is needed explicitly.
-    - lapack
-    - libblas * *netlib
+    #- libblas
+    #- liblapack
+    - pkg-config  # [unix]
   host:
     - cython
     - ipopt
-    - lapack
-    - libblas * *netlib
+    - liblapack
+    - libblas
     - numpy
     - pip
     - python
@@ -41,8 +41,6 @@ requirements:
     - {{ pin_compatible('numpy') }}
     - future
     - ipopt
-    - lapack
-    - libblas * *netlib
     - python
     - scipy
     - six
