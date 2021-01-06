@@ -1,6 +1,6 @@
 {% set name = "cyipopt" %}
-{% set version = "0.2.0" %}
-{% set sha256 = "5291388557d1dc0846fa8c31992d42166aa9c076b2393110665db95040bb3b3a" %}
+{% set version = "0.3.0" %}
+{% set sha256 = "fff4271c3661a4ad9fe7f0f2f0138648cd007e94c8d10ba456b56959ecee7d3f" %}
 
 package:
   name: {{ name|lower }}
@@ -12,37 +12,39 @@ source:
   sha256: {{ sha256 }}
   patches:
     - no_link_gfortran.patch
+    # NOTE : After cyipopt 0.3.0 was released ipopt-feedstock changed the name
+    # of the shared libraries on windows from libipopt to ipopt-3, this patch
+    # is required to build against the latest ipopt-feedstock built binaries.
+    - setup.py.patch
 
 build:
-  number: 1
-  # TODO: Once ipopt is available for Windows in conda forge, remove the
-  # following line.
-  skip: true  # [win]
-  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
+  number: 0
+  script_env:
+    - IPOPTWINDIR  # [win]
+  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv  # [unix]
 
 requirements:
   build:
-    - pkg-config  # [osx]
     - {{ compiler('c') }}
-    # NOTE : The conda-forge ipopt vendors lapack, thus it is needed explicitly.
-    - lapack
+    - pkg-config  # [unix]
   host:
+    - cython
+    - ipopt
+    - libblas
+    - liblapack
+    - numpy
     - pip
     - python
-    - ipopt
-    - lapack
-    - setuptools
-    - cython
-    - numpy
     - scipy
+    - setuptools
     - six
   run:
-    - python
-    - ipopt
     - {{ pin_compatible('numpy') }}
+    - future
+    - ipopt
+    - python
     - scipy
     - six
-    - future
 
 test:
   imports:
