@@ -12,6 +12,7 @@ source:
   sha256: {{ sha256 }}
   patches:
     - no_link_gfortran.patch
+    - setup.py.patch
 
 build:
   number: 0
@@ -22,15 +23,12 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
-    # NOTE : The conda-forge ipopt vendors lapack, thus it is needed explicitly.
-    #- libblas
-    #- liblapack
     - pkg-config  # [unix]
   host:
     - cython
     - ipopt
-    - liblapack
     - libblas
+    - liblapack
     - numpy
     - pip
     - python
