@@ -12,6 +12,9 @@ source:
   sha256: {{ sha256 }}
   patches:
     - no_link_gfortran.patch
+    # NOTE : After cyipopt 0.3.0 was released ipopt-feedstock changed the name
+    # of the shared libraries on windows from libipopt to ipopt-3, this patch
+    # is required to build against the latest ipopt-feedstock built binaries.
     - setup.py.patch
 
 build:
