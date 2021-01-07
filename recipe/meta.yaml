@@ -18,9 +18,7 @@ source:
     - setup.py.patch
 
 build:
-  number: 0
-  script_env:
-    - IPOPTWINDIR  # [win]
+  number: 1
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv  # [unix]
 
 requirements:
@@ -55,7 +53,7 @@ test:
     - python examplehs071.py
 
 about:
-  home: https://github.com/matthias-k/cyipopt
+  home: https://github.com/mechmotum/cyipopt
   license: EPL-1.0
   license_file: LICENSE
   summary: A Cython wrapper to the IPOPT optimization package
@@ -65,8 +63,8 @@ about:
     around Ipopt. It enables using Ipopt from the comfort of the great Python
     scripting language. Ipopt is available from the COIN-OR initiative, under
     the Eclipse Public License (EPL).
-  doc_url: http://pythonhosted.org/ipopt/
-  dev_url: https://github.com/matthias-k/cyipopt
+  doc_url: https://cyipopt.readthedocs.io
+  dev_url: https://github.com/mechmotum/cyipopt
 
 extra:
   recipe-maintainers:
