@@ -1,7 +1,7 @@
 About cyipopt
 =============
 
-Home: https://github.com/matthias-k/cyipopt
+Home: https://github.com/mechmotum/cyipopt
 
 Package license: EPL-1.0
 
@@ -9,9 +9,9 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/cyipopt-feedsto
 
 Summary: A Cython wrapper to the IPOPT optimization package
 
-Development: https://github.com/matthias-k/cyipopt
+Development: https://github.com/mechmotum/cyipopt
 
-Documentation: http://pythonhosted.org/ipopt/
+Documentation: https://cyipopt.readthedocs.io
 
 Ipopt (Interior Point OPTimizer, pronounced eye-pea-Opt) is a software
 package for large-scale nonlinear optimization. cyipopt is a python wrapper
