@@ -1,6 +1,6 @@
 {% set name = "cyipopt" %}
-{% set version = "0.3.0" %}
-{% set sha256 = "fff4271c3661a4ad9fe7f0f2f0138648cd007e94c8d10ba456b56959ecee7d3f" %}
+{% set version = "1.0.3" %}
+{% set sha256 = "a2084eebafa2349746de872c73734966367cff0ec19089be77cc263f761d40f1" %}
 
 package:
   name: {{ name|lower }}
@@ -18,7 +18,7 @@ source:
     - setup.py.patch
 
 build:
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv  # [unix]
 
 requirements:
