@@ -1,51 +1,49 @@
 {% set name = "cyipopt" %}
-{% set version = "0.3.0" %}
-{% set sha256 = "fff4271c3661a4ad9fe7f0f2f0138648cd007e94c8d10ba456b56959ecee7d3f" %}
+{% set version = "1.0.3" %}
+{% set sha256 = "656e787b06fe56e82c65ac18d3e1bba5e5b84f54df3800af9aeaf299caedaffc" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  fn: v{{ version }}.tar.gz
-  url: https://github.com/matthias-k/cyipopt/archive/v{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/i/ipopt/ipopt-{{ version }}.tar.gz
   sha256: {{ sha256 }}
-  patches:
-    - no_link_gfortran.patch
-    # NOTE : After cyipopt 0.3.0 was released ipopt-feedstock changed the name
-    # of the shared libraries on windows from libipopt to ipopt-3, this patch
-    # is required to build against the latest ipopt-feedstock built binaries.
-    - setup.py.patch
 
 build:
-  number: 1
-  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv  # [unix]
+  number: 0
+  script: "{{ PYTHON }} -m pip install . -vv"  # [unix]
 
 requirements:
   build:
     - {{ compiler('c') }}
     - pkg-config  # [unix]
   host:
-    - cython
-    - ipopt
+    - cython >=0.26
+    - ipopt  # [unix]
+    - ipopt >=3.13  # [win]
     - libblas
     - liblapack
     - numpy
     - pip
     - python
-    - scipy
-    - setuptools
-    - six
+    - setuptools >=39.0
+    - six >=1.11
   run:
     - {{ pin_compatible('numpy') }}
-    - future
-    - ipopt
+    - future >=0.15
+    - ipopt  # [unix]
+    - ipopt >=3.13  # [win]
     - python
-    - scipy
-    - six
+    - six >=1.11
+  run_constrained:
+    - scipy >=0.11.0
 
 test:
+  requires:
+    - scipy
   imports:
+    - cyipopt
     - ipopt
   files:
     - examplehs071.py
