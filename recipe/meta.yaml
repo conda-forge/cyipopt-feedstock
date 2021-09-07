@@ -1,17 +1,17 @@
 {% set name = "cyipopt" %}
-{% set version = "1.0.3" %}
-{% set sha256 = "656e787b06fe56e82c65ac18d3e1bba5e5b84f54df3800af9aeaf299caedaffc" %}
+{% set version = "1.1.0" %}
+{% set sha256 = "71b76c43dce1aaaec6cb55cd140a0b58a959a1a35c64c777014de18625a7fdd5" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/i/ipopt/ipopt-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name|lower }}/{{ name|lower }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 0
   script: "{{ PYTHON }} -m pip install . -vv"  # [unix]
 
 requirements:
