@@ -5,11 +5,11 @@ channel_sources:
 channel_targets:
 - conda-forge main
 ipopt:
-- '3.14'
+- 3.14.8
 libblas:
-- 3.8 *netlib
+- 3.9 *netlib
 liblapack:
-- 3.8 *netlib
+- 3.9 *netlib
 numpy:
 - '1.19'
 pin_run_as_build:
