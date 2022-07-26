@@ -1,5 +1,9 @@
+MACOSX_DEPLOYMENT_TARGET:
+- '10.9'
 c_compiler:
-- vs2017
+- clang
+c_compiler_version:
+- '13'
 channel_sources:
 - conda-forge
 channel_targets:
@@ -7,9 +11,11 @@ channel_targets:
 ipopt:
 - '3.14'
 libblas:
-- 3.8 *netlib
+- 3.9 *netlib
 liblapack:
-- 3.8 *netlib
+- 3.9 *netlib
+macos_machine:
+- x86_64-apple-darwin13.4.0
 numpy:
 - '1.19'
 pin_run_as_build:
@@ -17,9 +23,9 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.7.* *_73_pypy
+- 3.7.* *_cpython
 target_platform:
-- win-64
+- osx-64
 zip_keys:
 - - python
   - numpy
