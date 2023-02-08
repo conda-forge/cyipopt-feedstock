@@ -9,7 +9,7 @@ channel_sources:
 channel_targets:
 - conda-forge main
 ipopt:
-- 3.14.10
+- 3.14.11
 libblas:
 - 3.9 *netlib
 liblapack:
