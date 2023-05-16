@@ -3,13 +3,13 @@ MACOSX_DEPLOYMENT_TARGET:
 c_compiler:
 - clang
 c_compiler_version:
-- '14'
+- '15'
 channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
 ipopt:
-- 3.14.11
+- 3.14.12
 libblas:
 - 3.9 *netlib
 liblapack:
