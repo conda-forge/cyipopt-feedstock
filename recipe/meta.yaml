@@ -12,8 +12,8 @@ source:
 
 build:
   number: 0
-  script: {{ PYTHON }} -m pip install . -vv  # [unix]
-
+  script: /bin/rm -f pyproject.toml && {{ PYTHON }} -m pip install . -vv  # [unix]
+ 
 requirements:
   build:
     - python                                 # [build_platform != target_platform]
@@ -23,7 +23,7 @@ requirements:
     - {{ compiler('c') }}
     - pkg-config  # [unix]
   host:
-    - cython >=0.26
+    - cython =0.29.*  # does not build with cython >=3
     - ipopt  # [unix]
     - ipopt >=3.13  # [win]
     - libblas
@@ -31,14 +31,14 @@ requirements:
     - numpy
     - pip
     - python
-    - setuptools >=39.0
+    - setuptools >=41.1.1
   run:
     - {{ pin_compatible('numpy') }}
     - ipopt  # [unix]
     - ipopt >=3.13  # [win]
     - python
   run_constrained:
-    - scipy >=0.11.0
+    - scipy >=1.8.0
 
 test:
   requires:
