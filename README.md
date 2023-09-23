@@ -5,7 +5,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/cyipopt-feedsto
 
 Home: https://github.com/mechmotum/cyipopt
 
-Package license: EPL-1.0
+Package license: EPL-2.0
 
 Summary: A Cython wrapper to the IPOPT optimization package
 
