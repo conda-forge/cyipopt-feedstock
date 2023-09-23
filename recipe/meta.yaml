@@ -53,7 +53,7 @@ test:
 
 about:
   home: https://github.com/mechmotum/cyipopt
-  license: EPL-1.0
+  license: EPL-2.0
   license_file: LICENSE
   summary: A Cython wrapper to the IPOPT optimization package
   description: |
