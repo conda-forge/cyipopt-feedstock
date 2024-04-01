@@ -1,6 +1,6 @@
 {% set name = "cyipopt" %}
-{% set version = "1.3.0" %}
-{% set sha256 = "9845524079088bc5fcb61ff35caff7c1ccf785b2d7987093f357bc29fd93c306" %}
+{% set version = "1.4.0" %}
+{% set sha256 = "e94d5a987c29656689603e8ae3744b0f34e914f89268169e1b2ed50843d7630d" %}
 
 package:
   name: {{ name|lower }}
@@ -11,10 +11,10 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 3
+  number: 0
   script: /bin/rm -f pyproject.toml && {{ PYTHON }} -m pip install . -vv  # [unix]
-  skip: True  # [python_impl == 'pypy']
- 
+  skip: true  # [python_impl == 'pypy']
+
 requirements:
   build:
     - python                                 # [build_platform != target_platform]
