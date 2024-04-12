@@ -11,7 +11,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   script: /bin/rm -f pyproject.toml && {{ PYTHON }} -m pip install . -vv  # [unix]
   skip: true  # [python_impl == 'pypy']
 
@@ -22,6 +22,7 @@ requirements:
     - cython >=0.29.28                       # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - pkg-config  # [unix]
   host:
     - cython >=0.29.28
