@@ -11,7 +11,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 2
+  number: 3
   script: /bin/rm -f pyproject.toml && {{ PYTHON }} -m pip install . -vv  # [unix]
   skip: true  # [python_impl == 'pypy']
 
@@ -35,7 +35,6 @@ requirements:
     - python
     - setuptools >=41.1.1
   run:
-    - {{ pin_compatible('numpy') }}
     - ipopt  # [unix]
     - ipopt >=3.13  # [win]
     - python
