@@ -1,9 +1,15 @@
+MACOSX_DEPLOYMENT_TARGET:
+- '11.0'
 c_compiler:
-- vs2019
+- clang
+c_compiler_version:
+- '16'
 c_stdlib:
-- vs
+- macosx_deployment_target
+c_stdlib_version:
+- '11.0'
 channel_sources:
-- conda-forge
+- conda-forge/label/numpy_rc,conda-forge
 channel_targets:
 - conda-forge main
 ipopt:
@@ -12,18 +18,20 @@ libblas:
 - 3.9 *netlib
 liblapack:
 - 3.9 *netlib
+macos_machine:
+- arm64-apple-darwin20.0.0
 numpy:
-- '1.22'
+- '2.0'
 pin_run_as_build:
   python:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.9.* *_cpython
+- 3.12.* *_cpython
 python_impl:
 - cpython
 target_platform:
-- win-64
+- osx-arm64
 zip_keys:
 - - python
   - numpy
