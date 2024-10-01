@@ -11,8 +11,8 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
-  script: /bin/rm -f pyproject.toml && {{ PYTHON }} -m pip install . -vv  # [unix]
+  number: 2
+  script: /bin/rm -f pyproject.toml && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation  # [unix]
   skip: true  # [python_impl == 'pypy']
 
 requirements:
