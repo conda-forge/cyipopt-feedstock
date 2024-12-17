@@ -3,11 +3,11 @@ c_compiler:
 c_stdlib:
 - vs
 channel_sources:
-- conda-forge/label/python_rc,conda-forge
+- conda-forge
 channel_targets:
 - conda-forge main
 ipopt:
-- 3.14.16
+- 3.14.17
 libblas:
 - 3.9 *netlib
 liblapack:
@@ -25,4 +25,3 @@ target_platform:
 zip_keys:
 - - python
   - python_impl
-  - channel_sources
