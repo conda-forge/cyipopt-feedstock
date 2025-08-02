@@ -5,7 +5,7 @@ MACOSX_SDK_VERSION:
 c_compiler:
 - clang
 c_compiler_version:
-- '18'
+- '19'
 c_stdlib:
 - macosx_deployment_target
 c_stdlib_version:
@@ -17,9 +17,9 @@ channel_targets:
 ipopt:
 - 3.14.17
 libblas:
-- 3.9 *netlib
+- 3.9.* *netlib
 liblapack:
-- 3.9 *netlib
+- 3.9.* *netlib
 macos_machine:
 - arm64-apple-darwin20.0.0
 pin_run_as_build:
@@ -32,6 +32,3 @@ python_impl:
 - cpython
 target_platform:
 - osx-arm64
-zip_keys:
-- - python
-  - python_impl
