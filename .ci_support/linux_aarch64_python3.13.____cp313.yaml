@@ -15,7 +15,7 @@ channel_targets:
 docker_image:
 - quay.io/condaforge/linux-anvil-x86_64:alma9
 ipopt:
-- 3.14.17
+- 3.14.19
 libblas:
 - 3.9.* *netlib
 liblapack:
