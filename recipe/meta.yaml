@@ -1,6 +1,6 @@
 {% set name = "cyipopt" %}
-{% set version = "1.5.0" %}
-{% set sha256 = "8c6f9c1081aa754c6f84d9f2842bd0d4e4ad466a567f0d4675b124d681eec1dc" %}
+{% set version = "1.6.0" %}
+{% set sha256 = "6cc8153dfb32e60ef65fcbca6da31139d3746e21f4530bb58a6a38596b2df1a2" %}
 
 package:
   name: {{ name|lower }}
@@ -11,43 +11,40 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 4
-  script: /bin/rm -f pyproject.toml && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation  # [unix]
+  number: 0
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   skip: true  # [python_impl == 'pypy']
 
 requirements:
   build:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - cython >=0.29.28                       # [build_platform != target_platform]
+    - cython >=0.29.37                       # [build_platform != target_platform]
     - numpy >1.25                            # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
-    - pkg-config  # [unix]
+    - pkg-config
   host:
-    - cython >=0.29.28
-    - ipopt  # [unix]
-    - ipopt >=3.13  # [win]
+    - cython >=0.29.37
+    - ipopt >=3.13
     - libblas
     - liblapack
-    - numpy >=1.25
+    - numpy >=1.26.4
     - pip
     - python
-    - setuptools >=41.1.1
+    - setuptools >=68.1.2
   run:
-    - ipopt  # [unix]
-    - ipopt >=3.13  # [win]
-    - numpy >=1.21.5
+    - ipopt >=3.13
+    - numpy >=1.26.4
     - python
   run_constrained:
-    - scipy >=1.8.0
+    - scipy >=1.11.4
 
 test:
   requires:
     - scipy
   imports:
     - cyipopt
-    - ipopt
   files:
     - examplehs071.py
   commands:
