@@ -45,7 +45,6 @@ test:
     - scipy
   imports:
     - cyipopt
-    - ipopt
   files:
     - examplehs071.py
   commands:
