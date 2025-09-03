@@ -11,7 +11,7 @@ c_stdlib:
 c_stdlib_version:
 - '10.13'
 channel_sources:
-- conda-forge
+- conda-forge,conda-forge/label/python_rc
 channel_targets:
 - conda-forge main
 ipopt:
@@ -27,8 +27,11 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.9.* *_cpython
+- 3.14.* *_cp314
 python_impl:
 - cpython
 target_platform:
 - osx-64
+zip_keys:
+- - python
+  - channel_sources
